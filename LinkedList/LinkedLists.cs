@@ -190,7 +190,7 @@ namespace DataStructure
             // 값이 리스트에 없을때 있을떄 제거한 값이 헤드나 테일일때 중간 노드일때
             if (head == null) // 리스트가 비어있으면 예외처리
                 throw new Exception();
-            if (node.list != this)
+            if (node.list != this)  // 삭제하려는 노드랑 삭제하려는 리스트가 다를시 예외처리
                 throw new InvalidOperationException();
             if (Find(node))
             {
@@ -216,10 +216,10 @@ namespace DataStructure
             }
             count--;
         }
-        public LinkedListNode<T> Find(T value)
+        public LinkedListNode<T> Find(T value)  // 값으로 노드 찾기 리스트안에 찾는 값의 노드가 있으면 반환 없으면 null반환
         {
             LinkedListNode<T> newnoad = head;
-            while (true)
+            while (true)                        // 리스트안의 노드를 처음부터 끝까지 반복해서 값이 노드안에 있나 확인
             {
                 if (newnoad.Item.Equals(value))
                 {
@@ -237,10 +237,10 @@ namespace DataStructure
             newnoad = null;
             return newnoad;
         }
-        public bool Find(LinkedListNode<T> node)
+        public bool Find(LinkedListNode<T> node)    // 노드가 리스트안에 있는지 확인 있으면 true 없으면 false 반환
         {
             LinkedListNode<T> newnoad = head;
-            while (true)
+            while (true)                            // 반복문으로 리스트안에 찾는 노드가 있는지 확인
             {
                 if (newnoad == node)
                 {
