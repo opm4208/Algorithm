@@ -9,9 +9,9 @@ namespace DataStructure
 {
     public class LinkedListNode<T>      // 연결리스트 노드 클래스
     {
-        LinkedList<T> list;             // 노드에 연결된 리스트
-        LinkedListNode<T> prev;         // 노드의 앞에있는 노드를 저장할 변수
-        LinkedListNode<T> next;         // 노드의 뒤에있는 노드를 저장할 변수
+        internal LinkedList<T> list;             // 노드에 연결된 리스트
+        internal LinkedListNode<T> prev;         // 노드의 앞에있는 노드를 저장할 변수
+        internal LinkedListNode<T> next;         // 노드의 뒤에있는 노드를 저장할 변수
         private T item;                 // 값을저장할 변수
 
         public LinkedListNode(T value)  // 생성자
@@ -81,7 +81,7 @@ namespace DataStructure
             count++;                // 노드를 추가해서 count 증가
         }
 
-        public AddLast(T item)
+        public void AddLast(T item)
         {
             LinkedListNode<T> newnoad = new LinkedListNode<T>(this, item);
 
@@ -146,9 +146,9 @@ namespace DataStructure
             }
             else
             {
-                newnoad.tail = node.tail;
-                node.tail = newnoad;
-                newnoad.next = node;
+                newnoad.next = node.next;
+                node.next = newnoad;
+                newnoad.prev = node;
                 newnoad.next.prev = newnoad;
             }
             count++;
@@ -160,7 +160,7 @@ namespace DataStructure
             if(head==null) // 리스트가 비어있으면 예외처리
                 throw new Exception();
             LinkedListNode<T> deledtenode = Find(value);
-            if (deletenode!=null) // 값이 리스트안에 있었을때
+            if (deledtenode != null) // 값이 리스트안에 있었을때
             {
                 if(head==deledtenode) // 삭제할 노드가 헤드일때
                 {
@@ -221,7 +221,7 @@ namespace DataStructure
             LinkedListNode<T> newnoad = head;
             while (true)
             {
-                if(newnoad.Item == value)
+                if (newnoad.Item.Equals(value))
                 {
                     return newnoad;
                 }
@@ -255,7 +255,7 @@ namespace DataStructure
                     break;
                 }
             }
-            return flase;
+            return false;
         }
     }
 }
