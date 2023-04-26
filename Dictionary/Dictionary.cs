@@ -77,7 +77,7 @@ namespace Dictionary
 
                 while (true)
                 {
-                    if (tkey.Equals(table[index].Key))  // 찾는 키와 테이블의 인덱스의 키 값이 같으면 테이블의 인덱스에 저장된 값을 반환
+                    if (tkey.Equals(table[index].Key) && (table[index].state!=Entry.State.Deleted))  // 찾는 키와 테이블의 인덱스의 키 값이 같으면 테이블의 인덱스에 저장된 값을 반환
                     {
                         return table[index].Value;
                     }
@@ -98,7 +98,7 @@ namespace Dictionary
 
                 while (true)
                 {
-                    if (tkey.Equals(table[index].Key))  // 찾는키와 같으면 테이블의 인덱스에 값을 저장 후 종료
+                    if (tkey.Equals(table[index].Key)&& (table[index].state==Entry.State.Using))  // 찾는키와 같으면 테이블의 인덱스에 값을 저장 후 종료
                     {
                         table[index].Value = value;
                         return;
