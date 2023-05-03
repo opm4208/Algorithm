@@ -43,7 +43,7 @@ namespace ShortestPath
                         path[k] = next;                                 // 지나가는 경로로 현재 노드를 저장
                     }
                 }
-                visite[i]= true;                                        // 현재노드를 방문으로 처리
+                visite[i]= true;                                        // 현재노드를 방문으로 처리.
             }
         }
     }
